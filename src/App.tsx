@@ -1,3 +1,4 @@
+import { StartApi } from './context';
 import { setClaritySesion, startPrototypes } from './core';
 import { AppRoutes } from './router';
 
@@ -7,7 +8,9 @@ function App() {
     setClaritySesion();
 
     return (
-        <AppRoutes />
+        <StartApi>
+            <AppRoutes />
+        </StartApi>
     );
 }
 

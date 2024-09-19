@@ -10,6 +10,25 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>GeoSentinela</title>
+  <style>
+    /* Remove margem e padding padrão do navegador */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Garante que o body ocupe toda a altura da página */
+    html,
+    body {
+      height: 100%;
+    }
+
+    /* Se quiser garantir que seu app React ocupe a página inteira */
+    #root {
+      height: 100%;
+    }
+  </style>
 
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
