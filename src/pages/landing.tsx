@@ -2,6 +2,7 @@ import { AppBar, Box, Button, Icon, IconButton, Toolbar, Typography } from "@mui
 import { DrawerData } from "../components";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 export const LandingPage: React.FC = () => {
@@ -34,7 +35,6 @@ export const LandingPage: React.FC = () => {
                 height: '100%',
                 flex: 1,
             }}>
-                <DrawerData />
                 <MapContainer
                     center={position}
                     zoom={13}
@@ -49,12 +49,14 @@ export const LandingPage: React.FC = () => {
                     {/* Marcador com Popup */}
                     <Marker position={position}>
                         <Popup>
+                            <Icon>map</Icon>
                             <Typography fontWeight={"bold"}>
                                 Um marcador no mapa.
                             </Typography>
                         </Popup>
                     </Marker>
                 </MapContainer>
+                <DrawerData />
             </Box>
         </Box>
     );
