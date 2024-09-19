@@ -1,8 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { setClaritySesion, startPrototypes } from './core';
 
 function App() {
+  startPrototypes();
+  setClaritySesion();
+
   return (
     <div className="App">
       <header className="App-header">
