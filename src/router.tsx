@@ -16,7 +16,8 @@ export const AppRoutes: React.FC = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<LandingPage />} />
+                <Route path="/*" element={<Navigate to="/queimadas" />} />
+                <Route path="/:mapType" element={<LandingPage />} />
             </Routes>
         </BrowserRouter>
     );

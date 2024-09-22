@@ -4,9 +4,27 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useParams } from "react-router-dom";
+import { getApiSchema } from "../services";
+import { useEffect, useState } from "react";
 
 export const LandingPage: React.FC = () => {
+    const api = getApiSchema();
+    const { mapType } = useParams();
     const position: LatLngExpression = [51.505, -0.09];
+
+    const [data, setData] = useState<undefined | any>(undefined);
+
+    console.log(mapType);
+    useEffect(() => {
+        const getData = async () => {
+            if (mapType) {
+                const data = await api.getData(mapType);
+                setData(data);
+            }
+        };
+        getData();
+    }, []);
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
@@ -35,6 +53,8 @@ export const LandingPage: React.FC = () => {
                 height: '100%',
                 flex: 1,
             }}>
+                <DrawerData />
+
                 <MapContainer
                     center={position}
                     zoom={13}
@@ -56,7 +76,6 @@ export const LandingPage: React.FC = () => {
                         </Popup>
                     </Marker>
                 </MapContainer>
-                <DrawerData />
             </Box>
         </Box>
     );

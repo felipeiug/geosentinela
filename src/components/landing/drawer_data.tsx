@@ -6,7 +6,7 @@ export const DrawerData: React.FC = () => {
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            width: '250px',
+            width: '66%',
         }}>
         </Box>
     );
